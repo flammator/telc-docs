@@ -1,0 +1,24 @@
+Hard checking command :
+
+date && df -Th
+
+/opt/telc/scripts/compress_no_limit.pl
+
+ctrl z
+
+bg %1 && disown -h %1
+
+
+--------How to see if we still have not compresed files
+
+cd / home/tgui/files/pbx/monitor
+
+ll
+
+cd fullrecord/
+
+ll
+
+cd (last date)
+
+ll

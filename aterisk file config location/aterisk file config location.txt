@@ -1,0 +1,4 @@
+asterisk config fle location on linux
+
+
+cd /etc/asterisk/tgui/sip.conf

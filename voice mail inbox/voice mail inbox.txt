@@ -1,0 +1,30 @@
+How to clear voice mail inbox :
+
+Step 1: cd /var/spool/asterisk/voicemail/default
+
+Step 2: cd inbox
+
+Step 3: rm -rf *
+
+how to get backup for costumer :
+
+ tar -czvf (اسم فایل tar شده )  (اسم فایل) 
+
+How to send it to the costumer :
+
+scp (اسم فایل tar شده ) root@10.10.10.3: /var/www/html/centralpannel/app/webroot
+
+How to see storage amount :
+
+du -sh (اسم فایل) 
+
+
+final step : to run the command in background 
+
+1--> ctrl z 
+2--> bg %1 && disown -h %1
+
+
+how to chek if its running : 
+ps fax | grep tar
+

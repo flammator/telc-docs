@@ -1,0 +1,14 @@
+step 1 :   vi /etc/asterisk/manager.conf
+
+step 2 :   insert premade ami file confige and replace ip addrese with the needed one
+
+step 3 :   update firewall with the following command 
+           (firewall-cmd --permanent --add-rich-rule='rule family=ipv4 source address= (ip addrese) port port=5038 protocol=udp accept')
+
+step 4 :   reload firewall with the following command
+           (firewall-cmd --reload)
+
+
+
+
+step 5 : if (step 3) did not work add manually using this address  --> vi /etc/firewalld/zones/public.xml  then copy needed parts from working costumers pbx like verna

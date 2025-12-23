@@ -1,0 +1,1 @@
+select u.username, p.last_name,p.first_name,d.name,g.name  from users u  inner join profiles p  on (p.id=u.profile_id) inner join departments d on (p.department_id= d.id) inner join groups_users gu on (gu.user_id=u.id) inner join groups g on (g.id=gu.group_id) order by u.username;

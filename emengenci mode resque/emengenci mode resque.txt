@@ -1,0 +1,7 @@
+emengenci mode resque : 
+
+run this command :  -->   xfs_repair -L /dev/mapper/centos-root
+
+reboot then
+
+

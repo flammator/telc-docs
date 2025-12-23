@@ -1,0 +1,48 @@
+how to update the database of a project
+
+Step 1 -> dump from old database 
+
+Step 2 -> send it to new database mashine with a name 
+
+Step 3 -> drop then create tgui database 
+
+Step 4 -> create database tgui241
+
+Step 5 -> dump from new database mashine
+
+Step 6 -> create tgui 241
+
+Step 7 -> sed -i 's/ROW_FORMAT=COMPACT/ROW_FORMAT=DYNAMIC/' the dump fropm old database name
+
+Step 8 -> restore old dump to tgui
+
+Step 9 -> restore new dump to tgui241
+
+Step 10 -> open sqlyug
+
+Step 11 -> open powertools
+
+Step 12 -> open schema compare (third option on powertools tab)
+
+Step 13 -> from tgui241 to tgui 
+
+Step 14 -> compare
+
+Step 15 -> select folders on tgui241 tab
+
+Step 16 -> compare again
+
+Step 17 -> select all the delimiter tab between the two delimiter sign
+
+Step 18 -> on new database mashine 
+
+Step 19 -> vi (new name (whatever))
+
+Step 20 -> paste delimiter tab to it
+
+Step 21 -> ther myslq tgui < (new name (whatever))
+
+Step 22 -> then compare again (it has to show nothing)
+
+its done
+

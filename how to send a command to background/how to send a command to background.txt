@@ -1,0 +1,4 @@
+how to send a command to background :
+
+bg %[process number] && disown -h %[process number]
+

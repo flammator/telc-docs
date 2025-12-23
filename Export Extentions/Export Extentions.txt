@@ -1,0 +1,13 @@
+1- create folder on panel mashine --->    mkdir /var/www/html/central-panel/app/webroot/output
+
+2-give ownership to mysql --->   chown mysql.mysql -R /var/www/html/central-panel/app/webroot/output
+
+3-copy (extensionsExport.sh) in (/opt/telc/scripts)
+
+4-give acces  --->   chmod +x /opt/telc/scripts/extensionsExport.sh
+
+5-add to crontab -e ---> 00 00 * * * . $HOME/.bash_profile; /opt/telc/scripts/extensionsExport.sh > /var/log/tgui/extensionsExport.log 2>&1
+
+6- add this script to panel mashine  --->  rm -rf /var/www/html/central-panel/app/webroot/output/extensions.csv
+mysql tgui -e "SELECT 'Extension', 'First Name','Last Name', 'Department','nick_name' UNION ALL  select ext_number,p.first_name,p.last_name,d.name,p.nick_name from extensions e inner join departments d  on d.id= e.department_id inner join profiles p on p.id = e.profile_id INTO OUTFILE '/var/www/html/central-panel/app/webroot/output/extensions.csv'  CHARACTER SET utf8   FIELDS TERMINATED BY ',' ENCLOSED BY '\"' LINES TERMINATED BY '\n';"
+ 

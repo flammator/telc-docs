@@ -1,0 +1,6 @@
+how to create a user in linux : sudo adduser (username)
+
+how to grant root permission : sudo usermod -aG wheel (username)
+
+how to set password : passwd (username)*2
+

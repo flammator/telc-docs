@@ -1,0 +1,13 @@
+how to close panel debug
+
+Step 1 :
+
+vi /var/www/html/central-panel/app/Config/core.php 
+ 
+Step 2 :
+
+set config (0) 
+
+Final step : 
+
+reset web panel

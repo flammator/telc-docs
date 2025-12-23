@@ -1,0 +1,4 @@
+how to delete cake-session
+
+
+delete  from cake_sessions where user_id in (select id from users where username='telc');

@@ -1,0 +1,46 @@
+#!/bin/bash
+# protect-crontab.sh — disables "crontab -r" for safety, while keeping -e and -l usable.
+
+CRON_ORIG="/usr/bin/crontab"
+CRON_REAL="/usr/bin/crontab.real"
+
+# Make sure we're running as root
+if [[ $EUID -ne 0 ]]; then
+    echo "❌ Please run this script as root."
+    exit 1
+fi
+
+# Check if already protected
+if [[ -f "$CRON_REAL" ]]; then
+    echo "✅ Crontab is already protected (wrapper installed at $CRON_ORIG)."
+    exit 0
+fi
+
+# Move the original binary
+echo "🔧 Moving original crontab to $CRON_REAL ..."
+mv "$CRON_ORIG" "$CRON_REAL"
+
+# Create the wrapper script
+echo "🛡️  Creating safe wrapper at $CRON_ORIG ..."
+cat <<'EOF' > "$CRON_ORIG"
+#!/bin/bash
+# Safe wrapper to prevent accidental 'crontab -r' deletion
+
+for arg in "$@"; do
+    if [[ "$arg" == "-r" ]]; then
+        echo "❌ The command 'crontab -r' is disabled on this system for safety."
+        echo "If you really need to clear your cron jobs, use 'crontab -e' and remove them manually."
+        logger -p auth.warning "Blocked crontab -r attempt by user: $(whoami)"
+        exit 1
+    fi
+done
+
+# Pass all other arguments to the real crontab binary
+exec /usr/bin/crontab.real "$@"
+EOF
+
+# Make it executable
+chmod +x "$CRON_ORIG"
+
+echo "✅ Protection complete! 'crontab -r' is now disabled system-wide."
+echo "🧩 You can still use 'crontab -e' and 'crontab -l' normally."

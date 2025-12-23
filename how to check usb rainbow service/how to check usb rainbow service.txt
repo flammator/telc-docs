@@ -1,0 +1,10 @@
+how to check usb rainbow service
+
+first step : 
+
+/opt/safenet_sentinel/common_files/sentinel_usb_daemon/load_daemon.sh status   -->   if running -->  ok
+                                                                                     if not  -->   /opt/safenet_sentinel/common_files/sentinel_usb_daemon/load_daemon.sh start
+
+
+
+step 2 : svc all services																						 

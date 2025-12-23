@@ -1,0 +1,14 @@
+how to configure ssl certificate
+
+
+step 1 --> add files to pannel server using sftp 
+
+sftp 2 --> cd /root/ssl/    
+
+step 3 --> create a back up of cert and key file using cp command
+
+step 4 --> cp the new cert and key file each in the coresponding file name 
+
+step 5 --> restart http servise using (systemctl restart httpd) 
+
+step 6 --> ask costumer to check the certificate

@@ -1,0 +1,11 @@
+how to sort data from largest to smalest using du -shc *
+
+
+==>
+
+
+du -shc * | sort -hr
+
+
+du -sh --exclude=proc * | sort -hr
+

@@ -1,0 +1,6 @@
+how to hang up a on loop chanel 
+
+go to asterisk 
+
+1-core show chanel
+2-chanel request hangup (number) 

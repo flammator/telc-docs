@@ -1,0 +1,5 @@
+how to share last call info and sync with rapp op time between queues :  
+
+step 1 --> vi /etc/asterisk/queues.conf
+
+step 2 -> exit shared_lastcall=yes from commect and changes no to yes 

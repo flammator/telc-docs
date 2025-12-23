@@ -1,0 +1,10 @@
+how to fix web panel issue showing html page after updating project
+
+
+Step 1 -> vi /var/www/html/central-panel/.htaccess
+
+Step 2 -> change ip at the end off line 5 with panel ip like this 94.182.194.214
+
+Step 3 -> change ip at line 12 like that !^https://94\.182\.194\.214$
+
+Step 4-> comment everything from (Block spoofed Host headers) to (#RewriteRule .* - [F])

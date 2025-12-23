@@ -1,0 +1,9 @@
+how to add time to linux logs 
+
+step 1 ==>
+
+cat (file path) | tai64nlocal > destination path         exp ==> cat /service/tgui/log/main/current | tai64nlocal > /tmp/farahani
+
+step 2 ==> 
+
+open file with vi

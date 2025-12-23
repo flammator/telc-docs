@@ -1,0 +1,5 @@
+cp -v /root/Iran-noDST  /usr/share/zoneinfo/Asia/Tehran && timedatectl && timedatectl set-timezone Asia/Tehran && timedatectl
+
+
+فایل باید داخل سرور بارگذاری شود 
+Iran-noDST

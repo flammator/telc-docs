@@ -1,0 +1,1 @@
+tcpdump -i any port 5060 and host '' -vvvvvvvvvvvvvvv

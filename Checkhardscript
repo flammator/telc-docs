@@ -1,0 +1,17 @@
+name=$1
+task=$2
+project=$3
+assignee=$4
+reporter=$5
+data=$(df -h -t xfs --output=size,used,avail,pcent,target | grep -v boot | awk -v A=$assignee -v R=$reporter -v P=$project -v N=$name -v T=$task -v date="$(date +"%Y-%m-%d_%H:%M:%S")" '
+BEGIN {
+    printf "{\"Name\":\""N"\",\"task\":"T",\"assignee\":\""A"\",\"reporter\":\""R"\",\"project\":"P",\"date\":\"" date "\",\"HDDs\":["
+}
+NR > 1 {
+    printf "{\"size\":\"%s\", \"used\":\"%s\", \"avail\":\"%s\", \"pcent\":\"%s\", \"target\":\"%s\"},", $1, $2, $3, $4, $5
+    }
+END {
+    print "]}"
+}' | sed '$ s/,]}/]}/')
+#echo $data
+curl -X POST http://ftth.telc.ir:8000/ -H 'Accept: application/json' --data "$data"

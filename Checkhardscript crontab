@@ -1,0 +1,1 @@
+00 00 * * 6,3 /opt/telc/scripts/checkHdd.sh Asansor110planet 18666 10011 A.farahani m.jahaninia > /dev/null 2>&1
